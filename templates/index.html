@@ -1,0 +1,375 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analyzer</title>
+    {% comment %} <link rel="stylesheet" type="text/css"  href="style.css"> {% endcomment %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Poppins: 300,400,500,600,700,800,900&display=swap');
+
+*{
+    
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+body{
+    overflow-x: hidden;
+    min-height: 100vh;
+    background: linear-gradient(#2b1055,#01287c);
+}
+header
+{     
+    
+         position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%; 
+        padding: 30px 100px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+}
+header .logo
+{
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 2em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+
+}
+header ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header ul li{
+    list-style: none;
+    margin-left: 20px;
+
+}
+header ul li a{
+    text-decoration: none;
+    padding: 6px 15px;
+    color: white;
+    border-radius: 20px;
+}
+header ul li a:hover,
+header ul li a.active{
+    background: #fff;
+    color:#2b1055;
+}
+section{
+   
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    padding: 100px;
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    /* flex-direction: column; */
+}
+section::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to top,#1c0522,transparent);
+    z-index: 1000;
+
+}
+section img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+section img#moon{
+    mix-blend-mode: screen;
+}
+section img#mountains_front{
+    z-index: 10;
+}
+#text{
+    position: absolute;
+    right: -350px;
+    color: white;
+    white-space: nowrap;
+    font-size: 7.5vw;
+    z-index: 9;
+    
+}
+#btn {
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 30px;
+    border-radius: 40px;
+    background: white;
+    color: #2b1055;
+    font-size: 1.5em;
+    z-index: 11;
+    position: absolute;
+    position: relative; 
+   
+    /* left: 50%;  */
+    width: fit-content;
+    margin: auto;
+    transform: translateX(-50%); 
+    transform: translateY(100px);
+
+}
+.sec{
+    position: relative;
+    padding: 100px;
+    background: #1c0522;
+
+}
+.sec h2{
+    font-size: 3.5em;
+    margin-bottom: 10px;
+    color: white;
+
+}
+.sec p{
+    font-size: 1.2em;
+    color: #fff;
+}
+
+
+.box{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    position: relative;
+    width: 350px;
+    height: 450px;
+    background-color: rgb(19, 1, 79);
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.37);
+    transition: 1s;
+    margin:50px;
+}
+
+.container:hover {
+    transform: translateX(50%);
+    z-index: 999;
+}
+
+.container .imgbox {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    transform-origin: left;
+    transform-style: preserve-3d;
+    background-color: black;
+    transition: 1s;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.37);
+}
+
+.container:hover .imgbox {
+    transform: rotateY(-180deg);
+}
+
+.container .imgbox img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+.container .imgbox img:nth-child(2) {
+    transform: rotateY(180deg);
+}
+
+.container .details-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.details-container .content {
+    flex-direction: column;
+    padding: 10px;
+}
+
+.details-container .content h1 {
+    line-height: 1em;
+    font-weight: 800;
+    text-align: center;
+    color: white;
+}
+
+.details-container .content h1 span {
+    color: #58a6ff;
+    font-size: 1em;
+}
+
+.details-container .content p {
+    text-align: center;
+    font-size: 15px;
+    padding: 10px 20px;
+    color: white;
+}
+.contact-footer{
+    padding: 2rem 0;
+    background: #000;
+}
+.contact-footer h3{
+    font-size: 1.3rem;
+    color: #fff;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+.social-links{
+    display: flex;
+    justify-content: center;
+}
+.social-links a{
+    text-decoration: none;
+    width: 40px;
+    height: 40px;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.4rem;
+    transition: all 0.4s ease;
+}
+.social-links a:hover{
+    color: #f7327a;
+    border-color: #f7327a;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">Analyzer
+        </a>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <!-- <li><a href="#">About</a></li> -->
+            <li><a href="/crimeRate">Crime Graphs</a></li>
+            <!-- <li><a href="#">Contact</a></li> -->
+        </ul>
+    </header>
+    <section>
+        <img src="{% static 'stars.png' %}" id="stars">
+        <img src="{% static 'moon.png' %}" id="moon">
+        <img src="{% static 'mountains_behind.png' %}" id="mountains_behind">
+        <h2 id ="text">Crime Analyzer</h2>
+        <a href="#sec" id="btn">Explore</a>
+        <img src="{% static 'mountains_front.png' %}" id="mountains_front">
+    </section>
+    <div class="sec" id="sec">
+        <h2>Description</h2>
+        <p>The high incidence of crimes, particularly against women, in India necessitates the use of crime analyzers to overcome related challenges. Sexual assault against women in India is increasing, with the majority of crimes against women registered under categories such as "Cruelty by Husband or His Relatives," "Assault on Women with Intent to Outrage her Modesty," "Kidnapping & Abduction of Women," and "Rape." The crime rate per lakh women population is 58.8 in 2018</p>   
+    </div>
+
+    <div class="box">
+
+        <div class="container">
+            <div class="imgbox">
+                <img src="{% static '1.jpeg' %}" alt="about">
+                <img src="{% static '5.jpeg' %}" alt="about_2">
+            </div>
+            <div class="details-container flex">
+                <div class="content flex">
+                    <h1>Sexual<br> <span>Assault</span></h1>
+                    <p>The majority of crimes against women in India are registered under sexual assault categories.An analyzer can provide insights and trends from crime data to predict and prevent potential sexual assaults and improve law enforcement efficiency.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="imgbox">
+                <img src="{% static '2.jpeg' %}" alt="about">
+                <img src="{% static '6.jpeg' %}" alt="about_2">
+            </div>
+            <div class="details-container flex">
+                <div class="content flex">
+                    <h1>Cruelty<br> <span>By Husband or Relatives</span></h1>
+                    <p>'Cruelty by Husband or His Relatives' accounts for 31.9% of all crimes against women in India. An analyzer can assist law enforcement by identifying hotspots and patterns, enabling informed decisions, effective resource allocation, and overall improvement in combating violence against women.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="imgbox">
+                <img src="{% static '3.jpeg' %}" alt="about">
+                <img src="{% static '4.jpeg' %}" alt="about_2">
+            </div>
+            <div class="details-container flex">
+                <div class="content flex">
+                    <h1>Dowry<br> <span>Awareness</span></h1>
+                    <p>A significant problem in India, with 8,233 cases reported in 2012, often leading to disputes and in some cases, dowry deaths. An analyzer can help identify hotspots and trends to allocate resources effectively and prevent potential crimes.</p>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <div class="contact-footer">
+        <h3>Follow Us</h3>
+        <div class="social-links">
+          <a href="#" class="fab fa-facebook-f"></a>
+          <a href="#" class="fab fa-twitter"></a>
+          <a href="#" class="fab fa-instagram"></a>
+          <a href="#" class="fab fa-linkedin"></a>
+          <a href="#" class="fab fa-youtube"></a>
+        </div>
+        <h4  style="color: white;text-align: center;padding: 10px 20px;">Made with <i class="fa fa-heart" style="font-size:20px;color:red"></i> @DotSlash 7.0</h4>
+      </div>
+</body>
+<script>
+    let moon = document.getElementById('moon');
+    let stars = document.getElementById('stars');
+    let mountains_behind = document.getElementById('mountains_behind');
+    let mountains_front = document.getElementById('mountain_front');
+    let sec = document.getElementById('sec');
+    let btn = document.getElementById('btn');
+    let text = document.getElementById('text');
+    let header = document.querySelector('header');
+    window.addEventListener('scroll',function(){
+        let value = window.scrollY;
+        stars.style.left = value*0.25 + 'px';
+        mountains_behind.style.top=value*0.5 +'px';
+        text.style.marginRight=value*4 +'px';
+        mountains_front.style.top=value*0 +'px';
+        header.style.top = value*0.25+'px';
+    })
+</script>
+</html>
+
+
+
+
+
+
+

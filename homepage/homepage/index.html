@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analyzer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css"  href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">Analyzer
+        </a>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <!-- <li><a href="#">About</a></li> -->
+            <li><a href="crime.html">Crime Graphs</a></li>
+            <!-- <li><a href="#">Contact</a></li> -->
+        </ul>
+    </header>
+    <section>
+        <img src="/assets/stars.png" id="stars">
+        <img src="/assets/moon.png" id="moon">
+        <img src="/assets/mountains_behind.png" id="mountains_behind">
+        <h2 id ="text">Crime Analyzer</h2>
+        <a href="#sec" id="btn">Explore</a>
+        <img src="/assets/mountains_front.png" id="mountains_front">
+    </section>
+    <div class="sec" id="sec">
+        <h2>Description</h2>
+        <p>The high incidence of crimes, particularly against women, in India necessitates the use of crime analyzers to overcome related challenges. Sexual assault against women in India is increasing, with the majority of crimes against women registered under categories such as "Cruelty by Husband or His Relatives," "Assault on Women with Intent to Outrage her Modesty," "Kidnapping & Abduction of Women," and "Rape." The crime rate per lakh women population is 58.8 in 2018</p>   
+    </div>
+
+
+    <div class="box">
+
+        <div class="container">
+            <div class="imgbox">
+                <img src="./1.jpeg" alt="about">
+                <img src="./5.jpeg" alt="about_2">
+            </div>
+            <div class="details-container flex">
+                <div class="content flex">
+                    <h1>Sexual<br> <span>Assault</span></h1>
+                    <p>The majority of crimes against women in India are registered under sexual assault categories.An analyzer can provide insights and trends from crime data to predict and prevent potential sexual assaults and improve law enforcement efficiency.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="imgbox">
+                <img src="./2.jpeg" alt="about">
+                <img src="./6.jpeg" alt="about_2">
+            </div>
+            <div class="details-container flex">
+                <div class="content flex">
+                    <h1>Cruelty<br> <span>By Husband or Relatives</span></h1>
+                    <p>'Cruelty by Husband or His Relatives' accounts for 31.9% of all crimes against women in India. An analyzer can assist law enforcement by identifying hotspots and patterns, enabling informed decisions, effective resource allocation, and overall improvement in combating violence against women.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="imgbox">
+                <img src="./3.jpeg" alt="about">
+                <img src="./4.jpeg" alt="about_2">
+            </div>
+            <div class="details-container flex">
+                <div class="content flex">
+                    <h1>Dowry<br> <span>Awareness</span></h1>
+                    <p>A significant problem in India, with 8,233 cases reported in 2012, often leading to disputes and in some cases, dowry deaths. An analyzer can help identify hotspots and trends to allocate resources effectively and prevent potential crimes.</p>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <div class="contact-footer">
+        <h3>Follow Us</h3>
+        <div class="social-links">
+          <a href="#" class="fab fa-facebook-f"></a>
+          <a href="#" class="fab fa-twitter"></a>
+          <a href="#" class="fab fa-instagram"></a>
+          <a href="#" class="fab fa-linkedin"></a>
+          <a href="#" class="fab fa-youtube"></a>
+        </div>
+        <h4  style="color: white;text-align: center;padding: 10px 20px;">Made with <i class="fa fa-heart" style="font-size:20px;color:red"></i> @DotSlash 7.0</h4>
+      </div>
+</body>
+<script>
+    let moon = document.getElementById('moon');
+    let stars = document.getElementById('stars');
+    let mountains_behind = document.getElementById('mountains_behind');
+    let mountains_front = document.getElementById('mountain_front');
+    let sec = document.getElementById('sec');
+    let btn = document.getElementById('btn');
+    let text = document.getElementById('text');
+    let header = document.querySelector('header');
+    window.addEventListener('scroll',function(){
+        let value = window.scrollY;
+        stars.style.left = value*0.25 + 'px';
+        mountains_behind.style.top=value*0.5 +'px';
+        text.style.marginRight=value*4 +'px';
+        mountains_front.style.top=value*0 +'px';
+        header.style.top = value*0.25+'px';
+    })
+</script>
+</html>
